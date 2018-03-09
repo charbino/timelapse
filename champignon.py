@@ -13,6 +13,10 @@ import timelapse
 #-------------------------------------------------------------------------------
 
 if __name__ == '__main__':
+
+	#logging
+	logging.basicConfig(filename='log/champignon.log',level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
 	#Photo
 	# camera = picamera.PiCamera()
 	# camera.resolution = (1024, 768)

@@ -29,12 +29,9 @@ solarNoonGlobal =""
 civilTwilightBeginGlobal = ""
 civilTwilightEndGlobal = ""
 
-#logging
-logging.basicConfig(filename='testScriptChampignon.log',level=logging.DEBUG, format='%(asctime)s %(message)s')
 
 #Actualise les données avec les données du jour en base de données
 def initVariableGLobal():
-	print ('Mise a jour des données ....')
 	logging.debug('Mise à jour des données')
 	global dateNowGlobal
 	global sunriseGlobal

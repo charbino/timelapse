@@ -33,7 +33,7 @@ def daterange(start_date, end_date):
     for n in range(int ((end_date - start_date).days)):
         yield start_date + timedelta(n)
 
-start_date = date(2018, 02, 23)
+start_date = date(2018, 3, 8)
 end_date = date(2018, 12, 31)
 for singledate in daterange(start_date, end_date):
 	print date.strftime(singledate,"%Y-%m-%d")
