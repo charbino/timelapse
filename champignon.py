@@ -34,9 +34,9 @@ if __name__ == '__main__':
 			dateOfDay = date.strftime(dateNowGlobal,"%Y-%m-%d")
 			dateNowGlobalFromatted  = date.strftime(dateNowGlobal,"%Y-%m-%dT%H:%M:%S")
 
-			path = "photos/champignon/{}".format(dateOfDay)
-			if(not os.exists(path)):
-				os.makedirs(path)   
+			path = 'photos/champignon/{}'.format(dateOfDay)
+			if(not os.path.exists(path)):
+				os.makedirs(path)
 
 			camera.capture('{}/image{}.jpg'.format(path,dateNowGlobalFromatted))
 			logging.debug('{}/image{}.jpg'.format(path,dateNowGlobalFromatted))

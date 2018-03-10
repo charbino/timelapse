@@ -21,7 +21,7 @@ conn = sqlite3.connect('sunset-sunrise.db')
 c = conn.cursor()
 
 
-#variable global 
+#variable global
 dateNowGlobal = datetime.now()
 sunriseGlobal =""
 sunsetGlobal =""
@@ -94,7 +94,7 @@ def isSun():
 
 	if(dateNow > sunrise and dateNow < sunset):
 		result = True
-		
+
 	return result
 
 def isTwilight():
