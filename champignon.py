@@ -10,6 +10,7 @@ import time                             #bibliothèque time
 import picamera
 import logging
 import timelapse
+from datetime import datetime, timedelta, date
 #-------------------------------------------------------------------------------
 
 if __name__ == '__main__':
@@ -25,11 +26,14 @@ if __name__ == '__main__':
 
 	timelapse.initVariableGLobal();
 	while True:
-		i=0
 		while timelapse.isSun():
-			logging.debug('Je prend en photo')
-			# camera.capture('photos/image{0:07d}.jpg'.format(i))
-			# print('photos/image{0:07d}.jpg'.format(i))
-			# i +=1
+			#logging.debug('Je prend en photo')
+
+			dateNowGlobal = datetime.now();
+			dateNowGlobalFromatted  = date.strftime(dateNowGlobal,"%Y-%m-%dT%H:%M:%S")
+
+			camera.capture('photos/image{}.jpg'.format(dateNowGlobalFromatted))
+			logging.debug('photos/image{}.jpg'.format(dateNowGlobalFromatted))
+
 			time.sleep(timeBetweenPhoto)
 
