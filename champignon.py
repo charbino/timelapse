@@ -32,8 +32,8 @@ if __name__ == '__main__':
 			dateNowGlobal = datetime.now();
 			dateNowGlobalFromatted  = date.strftime(dateNowGlobal,"%Y-%m-%dT%H:%M:%S")
 
-			camera.capture('photos/image{}.jpg'.format(dateNowGlobalFromatted))
-			logging.debug('photos/image{}.jpg'.format(dateNowGlobalFromatted))
+			camera.capture('photos/champignon/image{}.jpg'.format(dateNowGlobalFromatted))
+			logging.debug('photos/champignon/image{}.jpg'.format(dateNowGlobalFromatted))
 
 			time.sleep(timeBetweenPhoto)
 
