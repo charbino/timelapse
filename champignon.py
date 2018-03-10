@@ -18,8 +18,8 @@ if __name__ == '__main__':
 	logging.basicConfig(filename='log/champignon.log',level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 	#Photo
-	# camera = picamera.PiCamera()
-	# camera.resolution = (1024, 768)
+	camera = picamera.PiCamera()
+	camera.resolution = (1024, 768)
 	timeBetweenPhoto  = 60			  # en seconde
 
 
