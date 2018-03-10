@@ -11,6 +11,7 @@ import picamera
 import logging
 import timelapse
 from datetime import datetime, timedelta, date
+import os
 #-------------------------------------------------------------------------------
 
 if __name__ == '__main__':
@@ -30,10 +31,15 @@ if __name__ == '__main__':
 			#logging.debug('Je prend en photo')
 
 			dateNowGlobal = datetime.now();
+			dateOfDay = date.strftime(dateNowGlobal,"%Y-%m-%d")
 			dateNowGlobalFromatted  = date.strftime(dateNowGlobal,"%Y-%m-%dT%H:%M:%S")
 
-			camera.capture('photos/champignon/image{}.jpg'.format(dateNowGlobalFromatted))
-			logging.debug('photos/champignon/image{}.jpg'.format(dateNowGlobalFromatted))
+			path = "photos/champignon/{}".format(dateOfDay)
+			if(not os.exists(path)):
+				os.makedirs(path)   
+
+			camera.capture('{}/image{}.jpg'.format(path,dateNowGlobalFromatted))
+			logging.debug('{}/image{}.jpg'.format(path,dateNowGlobalFromatted))
 
 			time.sleep(timeBetweenPhoto)
 
