@@ -22,7 +22,7 @@ if __name__ == '__main__':
 	#Photo
 	camera = picamera.PiCamera()
 	camera.resolution = (1024, 768)
-	timeBetweenPhoto  = 60			  # en seconde
+	timeBetweenPhoto  = 5			  # en seconde
 
 
 	timelapse.initVariableGLobal();
