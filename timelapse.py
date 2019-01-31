@@ -57,7 +57,7 @@ def isWinterHour():
 # TODO faire cette function
 	return True
 
-def isSun():
+def isSun(withTwilight):
 	result = False
 	global dateNowGlobal
 	global sunriseGlobal
@@ -92,8 +92,12 @@ def isSun():
 	civilTwilightBegin = civilTwilightBegin + timedelta(hours=addHourUtc)
 	civilTwilightEnd   = civilTwilightEnd + timedelta(hours=addHourUtc)
 
-	if(dateNow > sunrise and dateNow < sunset):
-		result = True
+	if withTwilight:
+		if(dateNow > civilTwilightBegin and dateNow < civilTwilightEnd):
+			result = True
+	else:
+		if(dateNow > sunrise and dateNow < sunset):
+			result = True
 
 	return result
 

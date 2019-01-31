@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 # Author : Marcelo
-# Permet de prendre en photo quand il fait jour 
+# Permet de prendre en photo du lever du soleil au couché
 #
 #
 #-------------------------------------------------------------------------------
@@ -17,16 +17,13 @@ import os
 if __name__ == '__main__':
 
 	#logging
-	logging.basicConfig(filename='log/champignon.log',level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+	logging.basicConfig(filename='log/weather.log',level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 	#Photo
 	camera = picamera.PiCamera()
 	camera.resolution = (1024, 768)
-
-	timeBetweenPhoto  = 5			  # en seconde
-
-	#timeBetweenPhoto  = 60 * 30			  # en seconde = toutes les demi heures
-	withTwilight = False
+	timeBetweenPhoto  = 60			  # en seconde
+	withTwilight = True
 
 
 	timelapse.initVariableGLobal();
@@ -38,7 +35,7 @@ if __name__ == '__main__':
 			dateOfDay = date.strftime(dateNowGlobal,"%Y-%m-%d")
 			dateNowGlobalFromatted  = date.strftime(dateNowGlobal,"%Y-%m-%dT%H:%M:%S")
 
-			path = 'photos/champignon/{}'.format(dateOfDay)
+			path = 'photos/weather/{}'.format(dateOfDay)
 			if(not os.path.exists(path)):
 				os.makedirs(path)
 
