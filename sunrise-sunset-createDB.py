@@ -19,7 +19,7 @@ import json
 
 
 # Create database and table
-conn = sqlite3.connect('sunset-sunrise.db')
+conn = sqlite3.connect('sunset-sunrise2020test.db')
 c = conn.cursor()
 c.execute('''CREATE TABLE sunsetSunrise (date text, sunrise text, sunset text, solar_noon text, civil_twilight_begin text, civil_twilight_end text)''')
 conn.commit()
@@ -33,10 +33,11 @@ def daterange(start_date, end_date):
     for n in range(int ((end_date - start_date).days)):
         yield start_date + timedelta(n)
 
-start_date = date(2019, 1, 1)
-end_date = date(2019, 12, 31)
+start_date = date(2020, 1, 1)
+end_date = date(2020, 12, 31)
 for singledate in daterange(start_date, end_date):
-	print date.strftime(singledate,"%Y-%m-%d")
+	
+	print (singledate.strftime("%Y-%m-%d"))
 	dateApi = date.strftime(singledate,"%Y-%m-%d")
 	url = 'https://api.sunrise-sunset.org/json?lat={}&lng={}&formatted={}&date={}'.format(latitudeAlbertville,longitudeAlbertville,formatted,dateApi)
 	responseJson = requests.post(url).json()
